@@ -1,7 +1,8 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import { createServer } from 'vite';
+import process from 'process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,8 +14,16 @@ async function startServer() {
   // Create Vite server in middleware mode
   const vite = await createServer({
     server: { middlewareMode: true },
-    appType: 'custom'
+    appType: 'custom',
+    root: process.cwd(),
+    build: {
+      outDir: 'dist',
+      assetsDir: 'assets'
+    }
   });
+
+  // Serve static files from the dist directory
+  app.use(express.static('dist'));
 
   // Use vite's connect instance as middleware
   app.use(vite.middlewares);
@@ -36,9 +45,12 @@ async function startServer() {
     }
   });
 
-  app.listen(port, () => {
+  app.listen(port, '0.0.0.0', () => {
     console.log(`Server running at http://localhost:${port}`);
   });
 }
 
-startServer(); 
+startServer().catch(err => {
+  console.error('Error starting server:', err);
+  process.exit(1);
+}); 
