@@ -1,0 +1,65 @@
+@import "./variables.scss";
+
+.image-annotator {
+  &__annotation-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+
+  &__annotation-item {
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &--selected {
+      border-color: #007bff;
+      background-color: #e9f3ff;
+    }
+
+    strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    small {
+      color: #888;
+      font-size: 0.75rem;
+    }
+  }
+
+  &__annotation-expanded {
+    margin-top: 0.75rem;
+
+    div {
+      padding: 0.25rem 0.5rem;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+
+      input,
+      textarea {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.25rem;
+        margin-top: 0.25rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        margin-right: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+      }
+    }
+  }
+}
+  

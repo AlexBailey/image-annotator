@@ -1,0 +1,135 @@
+@import './variables';
+
+.image-annotator {
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-md;
+    width: 280px;
+    background-color: #f9f9f9;
+    border-right: 1px solid $border;
+    font-family: $font-body;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 100vh;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      max-height: none;
+      border-right: none;
+      border-bottom: 1px solid $border;
+      padding: $spacing-sm;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: $spacing-sm;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    h3 {
+      margin-top: $spacing-md;
+      font-size: 1rem;
+      border-bottom: 1px solid $border;
+      padding-bottom: $spacing-xs;
+
+      @media (max-width: 768px) {
+        margin-top: $spacing-sm;
+        font-size: 0.9rem;
+      }
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: $spacing-sm;
+      margin-bottom: $spacing-xs;
+      font-weight: bold;
+      background-color: $secondary;
+      border: 1px solid $border;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lighten($secondary, 5%);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      @media (max-width: 768px) {
+        padding: $spacing-xs;
+        font-size: 0.9rem;
+      }
+    }
+
+    .image-annotator__annotation-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .image-annotator__annotation-item {
+      background-color: $secondary;
+      padding: $spacing-sm;
+      margin-bottom: $spacing-xs;
+      border: 1px solid $border;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &.selected {
+        background-color: $hover;
+        border-color: $primary;
+      }
+
+      strong {
+        display: block;
+        margin-bottom: $spacing-xs;
+      }
+
+      small {
+        color: $text-light;
+      }
+
+      .image-annotator__annotation-expanded {
+        margin-top: $spacing-sm;
+
+        div {
+          margin-bottom: $spacing-xs;
+          font-size: 0.9rem;
+          cursor: pointer;
+          padding: $spacing-xs;
+          background-color: white;
+          border: 1px solid $border;
+          border-radius: 4px;
+          transition: background-color 0.2s;
+
+          &:hover {
+            background-color: #f1f1f1;
+          }
+
+          input,
+          textarea {
+            width: 100%;
+            padding: $spacing-xs;
+            font-size: 0.85rem;
+            margin-bottom: $spacing-xs;
+            border: 1px solid $border;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+
+          button {
+            margin-right: $spacing-xs;
+            font-size: 0.75rem;
+            padding: $spacing-xs $spacing-sm;
+          }
+        }
+      }
+    }
+  }
+}

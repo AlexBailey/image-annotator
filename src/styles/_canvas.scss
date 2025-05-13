@@ -1,0 +1,144 @@
+@import "./variables.scss";
+
+.image-annotator {
+  &__main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__canvas-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    touch-action: none; // Prevents default touch actions on mobile
+  }
+
+  &__image {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+    max-height: 100vh;
+
+    @media (max-width: 768px) {
+      max-height: 50vh;
+    }
+  }
+
+  &__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    touch-action: none; // Prevents default touch actions on mobile
+  }
+
+  &__polygon {
+    cursor: pointer;
+    stroke-width: 2;
+    fill: rgba(40, 167, 69, 0.3);
+    stroke: rgba(40, 167, 69, 0.8);
+
+    @media (max-width: 768px) {
+      stroke-width: 3; // Thicker lines for touch
+    }
+  }
+
+  &__selected {
+    stroke: #007bff !important;
+    stroke-width: 3 !important;
+    stroke-dasharray: 5, 3;
+
+    @media (max-width: 768px) {
+      stroke-width: 4 !important;
+    }
+  }
+
+  &__polyline-preview {
+    fill: none;
+    stroke: rgba(40, 167, 69, 1);
+    stroke-width: 2;
+
+    @media (max-width: 768px) {
+      stroke-width: 3;
+    }
+  }
+
+  &__drag-point {
+    r: 4;
+    fill: transparent;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      r: 6; // Larger touch targets
+    }
+  }
+
+  &__arrow-preview {
+    stroke: red;
+    stroke-width: 2;
+    marker-end: url(#arrowhead);
+
+    @media (max-width: 768px) {
+      stroke-width: 3;
+    }
+  }
+
+  &__label {
+    fill: black;
+    font-size: 6px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    user-select: none;
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+      font-size: 8px;
+    }
+  }
+
+  &__label-input {
+    display: flex;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+
+    input {
+      flex: 1;
+      font-size: 12px;
+      padding: 2px;
+      border: none;
+
+      @media (max-width: 768px) {
+        font-size: 16px; // Larger text for mobile
+        padding: 4px;
+      }
+    }
+
+    button {
+      font-size: 12px;
+      padding: 0 6px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        padding: 0 8px;
+      }
+
+      &:hover {
+        background: #ddd;
+      }
+    }
+  }
+}
