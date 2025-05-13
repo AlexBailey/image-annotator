@@ -11,7 +11,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "postinstall": "npm run build"
   },
   "dependencies": {
