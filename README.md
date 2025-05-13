@@ -47,8 +47,8 @@ The application will be available at `http://localhost:3000`
 
 2. **Select Annotation Mode**
    - Choose between "Polygon" or "Arrow" mode
-   - Polygon mode: Click to create points, click near the start point to complete
-   - Arrow mode: Click to set start point, click again to set end point
+   - Polygon mode: Click to create points, click near the start point to complete, left click to remove additional (if over 3 points), you can also click and drag to reposition and reshape
+   - Arrow mode: Click to set start point, click again to set end point, you can also click and drag each end to reposition
 
 3. **Editing Annotations**
    - Click an annotation to select it
@@ -58,7 +58,7 @@ The application will be available at `http://localhost:3000`
 
 4. **Managing Annotations**
    - Click an annotation in the sidebar to select it
-   - Expand an annotation to edit its details
+   - Expand an annotation to edit its details, such as name nad description
    - Use the "Undo" button to remove the last annotation
    - Click "Export JSON" to download all annotations
 
